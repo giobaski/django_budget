@@ -1,0 +1,24 @@
+{% extends 'budget/base.html' %}
+
+<!-- {% load static %} -->
+{% block content %}
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+
+            <label for="categoryInput">Expense Categories (hit enter after every category)</label>
+            <input type="text" id="categoryInput" name="categoryInput">
+            <input type="hidden" name="categoryString">
+
+            <ul id="categoriesContainer">
+            </ul>
+
+            <button type="submit" class="btn">Start Project</button>
+        </form>
+    </div>    
+
+
+
+    <script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
