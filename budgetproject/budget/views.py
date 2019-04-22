@@ -10,8 +10,9 @@ import json
 
 # Create your views here.
 def project_list(request):
+    project_list = Project.objects.all()
     template_name = 'budget/project-list.html'
-    context = {}
+    context = {'project_list': project_list}
     return render(request, template_name, context)
 
 

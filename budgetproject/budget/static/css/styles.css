@@ -71,3 +71,7 @@ form ul li.category {
 .section-expenses li:nth-child(even) .expense{
     background-color: #F2F2F2;
 }
+
+.section-expanses .close-icon:hover {
+    cursor: pointer;
+}
