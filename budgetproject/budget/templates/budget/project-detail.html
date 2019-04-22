@@ -15,7 +15,13 @@
             <div class="col s12 m6 l4">
                 <div class="card-panel hoverable">
                     <h6 class="bold">Budget Left</h6>
-                    <h1 class="bold">$ {{ project.budget_left }} </h1>
+                    {% if project.budget_left > 0 %}
+                        <h1 class="bold green-text">$ {{ project.budget_left }} </h1>
+                    {% elif project.budget_left == 0 %}
+                        <h1 class="bold orange-text">$ {{ project.budget_left }} </h1>
+                    {% else %}
+                        <h1 class="bold red-text">$ {{ project.budget_left }} </h1>
+                    {% endif %}
                 </div>
             </div>
 
@@ -57,7 +63,6 @@
                         <a onclick="deleteExpense(this)" data-id="{{ expense.id }}">
                             <i class="material-icons red-text right"> close</i>
                         </a> 
-
                     </div>
                 </div>
             </li>
@@ -66,7 +71,7 @@
     </section>
 </div>
 
-
+<!-- Modal: Add Expense -->
 <div id="expenseModal" class="modal">
     <div class="modal-content">
         <h4>Add Expense</h4>
@@ -87,6 +92,7 @@
         </form> 
     </div>
 </div>
+
 
 <script>
 var elem = document.querySelector('.modal');
